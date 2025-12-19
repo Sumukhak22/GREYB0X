@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nothing Here</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at top, #0f2027, #000);
+      color: #cfd8dc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .terminal {
+      border: 1px solid #263238;
+      padding: 40px;
+      width: 520px;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.05);
+      position: relative;
+    }
+
+    .terminal::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.02),
+        rgba(255,255,255,0.02) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      pointer-events: none;
+    }
+
+    h1 {
+      color: #00e5ff;
+      margin-bottom: 15px;
+      animation: glitch 1.5s infinite;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .hint {
+      color: #78909c;
+      font-size: 13px;
+      margin-top: 20px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      background: #00e5ff;
+      margin-left: 4px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      20% { text-shadow: -2px 0 red, 2px 0 cyan; }
+      40% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      60% { text-shadow: none; }
+      100% { text-shadow: 2px 0 red, -2px 0 cyan; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="terminal">
+    <h1>404_NOT_FOUND<span class="cursor"></span></h1>
+
+    <p>> You weren’t meant to land here.</p>
+    <p>> This directory does not expose an index.</p>
+    <p>> But directories rarely hold just one truth.</p>
+
+    <div class="hint" id="hint">
+      Hint: Not everything reveals itself at the folder level.<br>
+      Sometimes you have to ask for what you want — by name.
+      There might be a little secret for you 
+    </div>
+    
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('hint').style.opacity = 1;
+      console.log("Exploration often starts with filenames.");
+    }, 2500);
+  </script>
+</body>
+</html>
